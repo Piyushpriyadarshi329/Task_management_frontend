@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import {LOGIN_URL} from "./../config/URL"
 import { ToastContainer, toast } from 'react-toastify';
-import Loader from "react-js-loader";
 import { useContext, useState } from "react";
 import axios from "axios";
 import {authContext} from "./../App"
 
 export default function Login() {
  const navigate= useNavigate();
- const auth=  useContext(authContext)
+ const auth:any=  useContext(authContext)
  const [email, setEmail] = useState<String|undefined>(undefined)
   const [password, setPassword] = useState<String|undefined>(undefined)
   const [loader, setloader] = useState(false)
@@ -20,10 +19,10 @@ try {
   const payload={
     email,password
   }
+  console.log("loader",loader)
   setloader(true)
   const res= await  axios.post(LOGIN_URL,payload)
   setloader(false)
-  console.log("res===>",res?.data?.user?.[0])
   if(res?.data?.success){
     auth.dispatch({type:"LOGIN",payload:res.data?.user?.[0]})
     setPassword("")

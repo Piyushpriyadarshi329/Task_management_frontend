@@ -16,6 +16,7 @@ export default function ForgetPassword() {
 
   async function ChangePasswordHandler(){
     try {
+      console.log(loader)
       const payload={
         email,password
       }
@@ -40,6 +41,7 @@ export default function ForgetPassword() {
     
     return (
       <div className='flex flex-1 bg-gray-500 h-screen w-screen justify-center items-center'>
+        <ToastContainer/>
   
         <div className=' flex flex-col w-130 h-150 bg-indigo-100 rounded-2xl '>
           <p className='text-center font-bold mt-15 text-3xl'> Password Change</p>

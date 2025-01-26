@@ -5,7 +5,7 @@ import Modal from "../../component/Model";
 import axios from "axios";
 import { TASK_URL } from "../../config/URL";
 import { ToastContainer, toast } from 'react-toastify';
-import { authContext } from "../../App";
+import { authContext } from "./../../App";
 
 
 
@@ -16,11 +16,11 @@ const auth:any= useContext(authContext)
   const [title, settitle] = useState<String|undefined>(undefined)
   const [description, setdescription] = useState<String|undefined>(undefined)
   //pending
-  const [list1, setList1] = useState([])
+  const [list1, setList1] = useState<any>([])
   //Completed
-  const [list2, setList2] = useState([])
+  const [list2, setList2] = useState<any>([])
   //Done
-  const [list3, setList3] = useState([])
+  const [list3, setList3] = useState<any>([])
   const [taskCreateModel, settaskCreateModel] = useState(false)
 
 
@@ -47,7 +47,7 @@ async function fetchTask(){
   }
  }
 
- async function updateTaskStatus(taskId,status){
+ async function updateTaskStatus(taskId:any,status:any){
 
   // enum : ['Pending','Completed','Done',"Delete"],
 
@@ -83,7 +83,8 @@ try {
       if (source.droppableId === "Pending_drop_area") {
         let tempList = list1
         const removed = deleteItem(tempList, source.index)
-        tempList.splice(destination.index, 0, removed)
+        
+        tempList.splice(destination.index, 0,removed )
         setList1(tempList)
       } else if (source.droppableId === "Completed_drop_area") {
         let tempList = list3
@@ -104,8 +105,8 @@ try {
       let tempList3 = list3
 
       if (source.droppableId === "Pending_drop_area") {
-        const removed = deleteItem(tempList1, source.index)
-        console.log("removed",removed)
+        const removed:any = deleteItem(tempList1, source.index)
+        console.log("removed====>s",removed)
         if (destination.droppableId === "Completed_drop_area") {
           updateTaskStatus(removed?.[0]._id,"Completed")
           tempList3.splice(destination.index, 0, removed)

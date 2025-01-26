@@ -3,7 +3,7 @@
 import {  Route, Routes } from "react-router-dom";
 import TaskList from "./task/TaskList";
 import FeedList from "./feed/FeedList";
-import MakeSidebar from "../component/SideBar";
+import MakeSidebar from "./../component/Sidebar";
 
 export default function index() {
   return (
@@ -18,7 +18,6 @@ export default function index() {
     <Route path="/" element={<TaskList/>}/>
     <Route path="/task" element={<TaskList/>}/>
     <Route path="/feed" element={<FeedList/>}/>
-    {/* <Route path="/passwordchange" element={<ForgetPassword/>}/> */}
 
     </>
   </Routes>

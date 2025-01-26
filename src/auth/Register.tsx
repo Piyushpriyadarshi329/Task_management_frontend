@@ -57,21 +57,21 @@ export default function Register() {
   
           <div className="flex flex-col">
           <div className='ml-10 mr-10 mt-10 flex flex-row '>
-            <input placeholder="Name"  value={name} className='border-1 rounded-xl flex-1 p-1 h-12 text-center'
+            <input placeholder="Name"  value={`${name}`} className='border-1 rounded-xl flex-1 p-1 h-12 text-center'
             onChange={(e)=>{
               setName(e.target.value)
             }}
             />
           </div>
           <div className='ml-10 mr-10 mt-10 flex flex-row '>
-            <input placeholder="Email" value={email} className='border-1 rounded-xl flex-1 p-1 h-12 text-center'
+            <input placeholder="Email" value={`${email}`} className='border-1 rounded-xl flex-1 p-1 h-12 text-center'
              onChange={(e)=>{
               setEmail(e.target.value)
             }}
             />
           </div>
           <div className='ml-10 mr-10 mt-10 flex flex-row'>
-            <input placeholder="Password" value={password}  type="password" className='border-1 rounded-xl flex-1 p-1 h-12 text-center'
+            <input placeholder="Password" value={`${password}`}  type="password" className='border-1 rounded-xl flex-1 p-1 h-12 text-center'
              onChange={(e)=>{
               setPassword(e.target.value)
             }}
@@ -79,7 +79,7 @@ export default function Register() {
           </div>
           
           <div className="ml-10 mr-10 flex justify-center mt-10 ">
-          <button onClick={ loader?null:signupHandler}  className="bg-blue-400 rounded-2xl p-3 flex-1"><p className="font-bold"> {loader?(          <Loader type="spinner-default" bgColor={"blue"} color={"white"}  size={40} />):"Sign Up"} </p></button>
+          <button onClick={ loader?()=>{}:signupHandler}  className="bg-blue-400 rounded-2xl p-3 flex-1"><p className="font-bold"> {loader?(          <Loader type="spinner-default" bgColor={"blue"} color={"white"}  size={40} />):"Sign Up"} </p></button>
 
           </div>
           <div className="mt-5">

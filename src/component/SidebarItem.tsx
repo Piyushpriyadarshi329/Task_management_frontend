@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authContext } from '../App';
+import { authContext } from './../App';
 
 interface SidebarItemProps {
   active?: boolean;
@@ -44,7 +44,7 @@ export default function SidebarItem({
 }: SidebarItemProps) {
   const [expandSubMenu, setExpandSubMenu] = useState(false);
   const navigate= useNavigate();
-  const {state,dispatch}=useContext(authContext)
+  const {dispatch}:any=useContext(authContext)
 
   useEffect(() => {
     if (!expanded) {
@@ -66,7 +66,7 @@ export default function SidebarItem({
          items-center rounded-md px-3
          py-2 font-medium transition-colors
          ${
-          window.location.pathname.includes(path) && !subMenu
+          window.location.pathname.includes(`${path}`) && !subMenu
              ? 'text-primary-500 bg-gradient-to-tr from-indigo-200 to-indigo-100'
              : 'text-gray-600 hover:bg-indigo-50'
          }
@@ -122,7 +122,7 @@ export default function SidebarItem({
                       text={item.text}
                       icon={item.icon}
                       path={item?.path}
-                      active={window.location.pathname.includes(path)}
+                      active={window.location.pathname.includes(`${path}`)}
                     />
                   ))}
             </div>

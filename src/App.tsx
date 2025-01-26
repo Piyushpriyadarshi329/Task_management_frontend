@@ -4,7 +4,7 @@
 import { BrowserRouter as Router, } from "react-router-dom";
 import Auth from "./auth";
 import Routes from "./page"
-import { createContext, useContext, useEffect, useReducer } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
 
 export const authContext = createContext(null);
 
@@ -17,7 +17,7 @@ export default function App() {
   };
 
 
-  const reducer = (state, action) => {
+  const reducer = (state:any, action:any) => {
     switch (action.type) {
       case "LOGIN":
         localStorage.setItem("user",JSON.stringify(action?.payload))

@@ -4,7 +4,7 @@ import FeedComponent from "./FeedComponent";
 import axios from "axios";
 import { FEED_URL, UPLOAD_URL } from "../../config/URL";
 import { ToastContainer, toast } from 'react-toastify';
-import { authContext } from "../../App";
+import { authContext } from "./../../App";
 import Loader from "react-js-loader";
 
 
@@ -130,7 +130,7 @@ console.log("loader",loader)
                 }}
               />
               <div className="ml-10 mr-10 flex justify-center mt-10 ">
-                <button onClick={loader ? null : createFeed} className="bg-blue-400 rounded-2xl p-3 flex-1"><p className="font-bold"> {loader ? (<Loader type="spinner-default" bgColor={"blue"} color={"white"} className="p-2" size={40} />) : "Submit"}</p></button>
+                <button onClick={loader ? ()=>{} : createFeed} className="bg-blue-400 rounded-2xl p-3 flex-1"><p className="font-bold"> {loader ? (<Loader type="spinner-default" bgColor={"blue"} color={"white"} className="p-2" size={40} />) : "Submit"}</p></button>
               </div>
 
             </div>

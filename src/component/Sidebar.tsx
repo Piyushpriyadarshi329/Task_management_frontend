@@ -3,12 +3,10 @@ import {
     ArrowLeftIcon,
     HomeIcon,
     CogIcon,
-    UserIcon,
-    EllipsisVerticalIcon,
   } from '@heroicons/react/24/outline';
   import { useContext, useState } from 'react';
   import SidebarItem from './SidebarItem';
-import { authContext } from '../App';
+import { authContext } from './../App';
   
   
   // This sidebar component is for both mobile and desktop
